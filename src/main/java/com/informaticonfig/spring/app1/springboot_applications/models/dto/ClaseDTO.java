@@ -18,6 +18,5 @@ public class ClaseDTO {
     public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
-    
 
 }

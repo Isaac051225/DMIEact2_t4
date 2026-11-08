@@ -34,6 +34,7 @@ public class PathVariableController {
 
 
 
+
     @GetMapping("/pagina1/{mensaje}")
     public ParametroDTO pagina1(@PathVariable String mensaje){
 
@@ -56,7 +57,17 @@ public class PathVariableController {
         json.put("Valores", valores);
 
         return json;
+    } 
+
+    @GetMapping("/empleado/{id}")
+    public Empleados verEmpleadoPorId(@PathVariable int id) {
+        if (id == 10) {
+            return new Empleados("Isaac", "Diaz", "Calle Benito Juarez S/N", "Ingeniero", 20, 123456789, 10);
+        } else if (id == 20) {
+            return new Empleados("María", "Perez", "Calle segunda no.2", "Gerente", 30, 987654321, 20);
+        } else {
+            // Un empleado genérico si buscan cualquier otro ID
+            return new Empleados("Empleado Desconocido", "N/A", "Sin Dirección", "Sin Puesto", 0, 0, id);
+        }
     }
-    
-    
 }

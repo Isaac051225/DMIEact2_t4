@@ -6,6 +6,9 @@
     <title th:text="${Titulo}">Pagina Spring Boot</title>
 </head>
 <body>
+
+    <p><strong>Desarrollador (@Value):</strong> <span th:text="${UsuarioConfig}"></span></p>
+    <p><strong>Proyecto (@Value):</strong> <span th:text="${ProyectoConfig}"></span></p>
        <h1>Información de empleado</h1>
     <ul>
         <li><strong>Nombre:</strong> <span th:text="${Empleado.nombre}"></span></li>
@@ -45,6 +48,20 @@
             </tr>
         </tbody>
     </table>
+
+
+    <h2>Registrar Nuevo Empleado</h2>
+<form th:action="@{/nuevo-empleado}" method="post">
+    <div><label>Nombre: <input type="text" name="nombre" required /></label></div>
+    <div><label>Apellido: <input type="text" name="apellido" required /></label></div>
+    <div><label>Dirección: <input type="text" name="direccion" /></label></div>
+    <div><label>Puesto: <input type="text" name="puesto" required /></label></div>
+    <div><label>Edad: <input type="number" name="edad" required /></label></div>
+    <div><label>Teléfono: <input type="number" name="telefono" value="0" required /></label></div>
+    <div><label>ID / Depto: <input type="number" name="id" value="1" required /></label></div>
+    <br>
+    <button type="submit">Guardar Empleado</button>
+</form>
     
 </body>
 </html>
