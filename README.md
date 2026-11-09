@@ -2,7 +2,7 @@
 
 **Alumno / Iniciales:** DMIE  
 **Repositorio:** DMIEact2_t4  
-**Servidor VPS:** `http://165.22.188.79:8084`
+**Servidor VPS:** `http://165.22.188.79:8084/Actividad2`
 
 ## Descripción del Proyecto
 Para esta Actividad 2, implementé una estructura híbrida que combina controladores MVC (para renderizar vistas HTML dinámicas) y controladores REST (para responder con JSON). 
