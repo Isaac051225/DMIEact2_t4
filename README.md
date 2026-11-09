@@ -1,44 +1,33 @@
-# Proyecto Spring Boot - Actividad 1 Tema 4
+# Actividad 2: Spring MVC - Vistas con Thymeleaf, DTOs y Manejo de Peticiones
 
 **Alumno / Iniciales:** DMIE  
-**Repositorio:** DMIEact1_t4  
-**Puerto en VPS:** 8082  
-**Entorno de Java:** JDK 21
+**Repositorio:** DMIEact2_t4  
+**Servidor VPS:** `http://165.22.188.79:8084`
 
 ## Descripción del Proyecto
-Aplicación Web desarrollada con Spring Boot y desplegada en un servidor compartido VPS. El proyecto incluye controladores REST encargados de exponer información del alumno, materias en curso y respuestas adicionales a peticiones HTTP GET.
+Para esta Actividad 2, implementé una estructura híbrida que combina controladores MVC (para renderizar vistas HTML dinámicas) y controladores REST (para responder con JSON). 
+Ademas el uso de Thymeleaf con `th:each`, manejo de formularios mediante `@ModelAttribute`, lectura de propiedades desde el archivo `application.properties` usando `@Value`, y endpoints REST para filtrar y buscar información con `@RequestParam` y `@PathVariable`, además de procesar peticiones HTTP POST con objetos DTO.
 
-## Controladores y Endpoints
+### 1. Renderizado de Vistas Dinámicas (Thymeleaf)
+Demostración de la vista HTML procesando iteraciones con `th:each` e inyección de datos.
+![Lista de Empleados](./imagenes/01_listado_thymeleaf.png)
 
-### 1. `InfoController.java`
-* **`GET /mi-info`**  -> Endpoint a) Retorna el nombre del proyecto / iniciales para identificar la instancia activa en el servidor.
+### 2. Procesamiento de Formularios (`@ModelAttribute`)
+Recepción y envío de datos mediante objeto modelo.
+![Formulario ModelAttribute](./imagenes/02_form_modelattribute.png)
 
-### 2. `DatosController.java`
-* **`GET /mis-materias`** -> Endpoint b) Retorna un arreglo JSON con el listado de materias en curso ("Programación Web", "Conmutacion de redes", "Lenguajes y Automatas II", "PLF").
+### 3. Filtro por Parámetros (`@RequestParam`)
+Endpoint REST procesando listas dinámicas desde la URL (`?valores=Sistemas&valores=Contabilidad`).
+![RequestParam Lista](./imagenes/03_request_param.png)
 
-### 3. `AdicionalController.java`
-* **Endpoint c)** -> Retorna una respuesta adicional (texto, número o estructura de datos simple).
+### 4. Búsqueda por Parámetros de Ruta (`@PathVariable`)
+Consulta REST de detalles dinámicos por ID (`/api/variable/empleado/10`).
+![PathVariable ID](./imagenes/04_path_variable.png)
 
-## Pruebas y Ejecución
+### 5. Inyección de Propiedades (`@Value`)
+Lectura e inyección de datos desde `application.properties` renderizados en la vista HTML.
+![Propiedades Value](./imagenes/05_value_properties.png)
 
-### 1. En Máquina Local
-1. Abrir la terminal en la raíz del proyecto en VS Code.
-2. Compilar y ejecutar la aplicación:
-   .\mvnw spring-boot:run
-Mientras la app se ejecute en la PC, probar en Postman o navegador:
-http://localhost:8082/mis-materias 
-
-![Prueba local en Postman](imagenes/prueba-local.png)
-![Prueba local en navegador](imagenes/prueba-local2.png)
-
-### 1. En el Servidor VPS
-
-IP del VPS: 165.22.188.79
-Puerto asignado: 8082
-URL de verificación directa:
-http://165.22.188.79:8082/mi-info
-http://165.22.188.79:8082/mis-materias
-http://165.22.188.79:8082/estado-sistema
-
-![Prueba VPS en Postman](imagenes/prueba-VPS.png)
-![Prueba VPS en navegador](imagenes/prueba-VPS2.png)
+### 6. Petición POST con DTO (Postman)
+Prueba del servicio REST recibiendo JSON con respuesta exitosa HTTP 200 OK.
+![Petición POST Postman](./imagenes/06_postman_post.png)

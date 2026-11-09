@@ -24,7 +24,7 @@ public class EjemploController {
     private String proyectoConfig;
 
 
-    @GetMapping("/detalles_info")
+    @GetMapping("/Actividad2")
     public String info(Model model){
         Empleados empleado1 = new Empleados("Isaac","Diaz","Calle Benito Juarez S/N","estudiante",
                                               20, 123456789, 001);
@@ -34,7 +34,7 @@ public class EjemploController {
         model.addAttribute("UsuarioConfig", nombreConfig);
         model.addAttribute("ProyectoConfig", proyectoConfig);
 
-        
+
         return "detalles_info";
     }
 
